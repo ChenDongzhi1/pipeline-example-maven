@@ -621,46 +621,37 @@
 		</pluginManagement>
 	</build>
 
+	<!-- 设定主仓库，按设定顺序进行查找。 -->
+	<repositories>
+	   <repository>
+	      <snapshots>
+	         <enabled>true</enabled>
+	      </snapshots>
+	      <id>dxhy</id>
+	      <name>dxhy Repository</name>
+	      <url>http://10.1.20.6:8081/nexus/content/groups/public/</url>
+	   </repository>
+	</repositories>
+
+	<!-- 设定插件仓库 -->
 	<pluginRepositories>
-		<!-- For testing against latest Spring snapshots -->
-		<pluginRepository>
-			<id>spring-snapshot</id>
-			<name>SpringSource Snapshot Repository</name>
-			<url>http://repo.springsource.org/snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<!-- For Spring releases -->
-		<pluginRepository>
-			<id>spring-repository</id>
-			<name>SpringSource Repository</name>
-			<url>http://repo.springsource.org/release</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-		<!-- For developing against latest Spring milestones -->
-		<pluginRepository>
-			<id>spring-milestone</id>
-			<name>SpringSource Milestone Repository</name>
-			<url>http://repo.springsource.org/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
+	   <pluginRepository>
+	      <id>大象慧云maven资源库</id>
+	      <name>大象慧云maven资源库</name>
+	      <url>http://10.1.20.6:8081/nexus/content/groups/public/</url>
+	   </pluginRepository>
 	</pluginRepositories>
 
+
 	<distributionManagement>
-		<!-- Temporary until we have a need to publish to a remote release repository -->
-		<snapshotRepository>
-			<id>localPublish</id>
-			<name>localPublish</name>
-			<url>file://${user.home}/local-maven-publish-repository</url>
-		</snapshotRepository>
+	   <repository>
+	      <id>user-releases</id>
+	      <url>http://10.1.20.6:8081/nexus/content/repositories/releases/</url>
+	   </repository>
+	   <snapshotRepository>
+	      <id>user-snapshots</id>
+	      <url>http://10.1.20.6:8081/nexus/content/repositories/snapshots/</url>
+	   </snapshotRepository>
 	</distributionManagement>
 
 </project>
